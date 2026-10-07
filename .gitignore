@@ -1,0 +1,21 @@
+# 构建产物（补丁版 Assembly-CSharp.dll 含游戏原始代码的衍生物，禁止分发）
+output/
+
+# 可执行文件与过程转储
+*.exe
+tools/inspect/*.txt
+
+# 第三方二进制：只保留补丁器编译所需的 Mono.Cecil.dll（MIT 许可）
+*.dll
+!tools/moddingapi/Mono.Cecil.dll
+
+# 用户本机的游戏文件引用位置（不在仓库内）
+refs/
+
+# 加载器完整分发包与其文档（本项目最终方案未使用）
+tools/moddingapi.v77.windows.zip
+tools/moddingapi/*.xml
+tools/moddingapi/README.md
+
+# 编辑器本地配置
+.zcodeignore
