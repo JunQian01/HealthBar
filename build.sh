@@ -4,16 +4,19 @@ set -e
 cd /c/workspace/mod
 mkdir -p output
 cd src
-MSYS2_ARG_CONV_EXCL="*" "/c/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe" -nologo -target:library -optimize+ \
+MSYS2_ARG_CONV_EXCL="*" "/c/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe" -nologo -noconfig -target:library -optimize+ \
   -out:"C:/workspace/mod/output/EnemyHPBar.dll" \
   -r:"C:/workspace/file/Managed/Assembly-CSharp.dll" \
   -r:"C:/workspace/file/Managed/UnityEngine.dll" \
   -r:"C:/workspace/file/Managed/UnityEngine.CoreModule.dll" \
   -r:"C:/workspace/file/Managed/UnityEngine.Physics2DModule.dll" \
   -r:"C:/workspace/file/Managed/UnityEngine.InputLegacyModule.dll" \
+  -r:"C:/workspace/file/Managed/UnityEngine.UIModule.dll" \
+  -r:"C:/workspace/file/Managed/UnityEngine.UI.dll" \
   -r:"C:/workspace/file/Managed/Unity.InputSystem.dll" \
+  -r:"C:/workspace/file/Managed/System.Drawing.dll" \
   -r:"C:/workspace/file/Managed/netstandard.dll" \
   EnemyHPBar.cs
 cd /c/workspace/mod
 ./patch.sh
-echo "== 全部完成，成品在 output/ =="
+echo "== BUILD OK: output/ =="
